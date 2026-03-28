@@ -46,7 +46,7 @@ with tab1:
     if st.button("問 Kan Explainer", key="btn1") and query1:
         with st.spinner("Kan Explainer 思考中..."):
             response = client.chat.completions.create(
-                model="grok-3",
+                model="grok-beta",
                 messages=[
                     {"role": "system", "content": EXPLAINER_PROMPT},
                     {"role": "user", "content": query1}
@@ -73,7 +73,7 @@ with tab2:
                 content = CRITIC_PROMPT + f"\n用戶意圖：{intent}\n（PDF已上傳，請根據內容批判）"
 
             response = client.chat.completions.create(
-                model="grok-3",
+                model="grok-beta",
                 messages=[
                     {"role": "system", "content": CRITIC_PROMPT},
                     {"role": "user", "content": content}
